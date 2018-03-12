@@ -1,0 +1,17 @@
+{
+  "name": "apps",
+  "authors": [
+    "김종관 <jgkim@suprema.co.kr>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
