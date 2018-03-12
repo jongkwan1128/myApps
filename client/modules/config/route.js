@@ -6,8 +6,8 @@ angular.module('app').constant('routeName', {
 	LOGIN: 'login',
 	LOGOUT: 'logout',
 	INDEX: 'index',
-	TEST: 'test',
-	TEST2: 'test2',
+	BOARD: 'board',
+	MONEY_BOOK: 'moneyBook',
 	TEST3: 'test3'
 });
 
@@ -41,26 +41,28 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, route
 		url: '/',
 		parent: routeName.BASE,
 		templateUrl: 'modules/index/index.html',
-		controller: function ($scope, routeName) {
-			$scope.routeName = routeName;
-			console.log('index2')
-		}
+		resovle: {
+			routeName: function (routeName) {
+				return routeName;
+			}
+		},
+		controller: 'indexCtrl'
 	});
 
 	$stateProvider.state({
-		name: routeName.TEST,
-		url: 'test',
+		name: routeName.BOARD,
+		url: 'board',
 		parent: routeName.INDEX,
-		templateUrl: '/modules/test1/test.html',
-		controller: 'testCtrl'
+		templateUrl: '/modules/board/board.html',
+		controller: 'boardCtrl'
 	});
 
 	$stateProvider.state({
-		name: routeName.TEST2,
-		url: 'test2',
+		name: routeName.MONEY_BOOK,
+		url: 'money_book',
 		parent: routeName.INDEX,
-		templateUrl: '/modules/test2/test2.html',
-		controller: 'test2Ctrl'
+		templateUrl: '/modules/moneyBook/moneyBook.html',
+		controller: 'moneyBookCtrl'
 	});
 
 	$urlRouterProvider.otherwise('/');

@@ -9,6 +9,9 @@ let app = express();
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.json());
 
+// board db
+app.use('/api/board', require('./server/controllers/boardController'));
+
 app.use('/', require('./server/static'));
 
 app.listen(4000, function () {
