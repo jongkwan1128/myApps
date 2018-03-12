@@ -22,10 +22,8 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, route
 		name: routeName.LOGIN,
 		url: '/login',
 		parent: routeName.BASE,
-		template: '<div>login</div>',
-		controller: function () {
-
-		}
+		templateUrl: 'modules/login/login.html',
+		controller: 'loginCtrl'
 	});
 
 	$stateProvider.state({
@@ -66,15 +64,4 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, route
 	});
 
 	$urlRouterProvider.otherwise('/');
-});
-
-angular.module('app').run(function ($rootScope) {
-	$rootScope.$on('$stateChangeError',
-		function () {
-			console.log(arguments);
-			// function(event, toState, toParams, fromState, fromParams, error){
-			//     console.log('resolve-error', error);
-			//     console.log('resolve-error-event', event);
-			//     console.log('resolve-error-event', event);
-		});
 });
